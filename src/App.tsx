@@ -10,6 +10,7 @@ function App() {
 	const [chuckGreeting, setChuckGreeting] = useState<string>("I am Chuck Norris!!!")
 	const [whalesSaved, setWhalesSaved] = useState<number>(700)
 	const [roundHouseKicks, setRoundHouseKicks] = useState<number>(300000)
+	const [filteredJokes, setFilteredJokes] = useState<number>(3)
 	const [jokes, setJokes] = useState<Array<Joke>>([{
 		"id": 1,
 		"joke": "Chuck Norris doesn’t read books. He stares them down until he gets the information he wants.",
@@ -40,8 +41,13 @@ function App() {
 			/>
 
 			<h2>Jokes:
-				{ChuckJoke(jokes)}
+				{jokes.map((item) => ChuckJoke(item.joke))}
+			</h2>
 
+			<h2>Filterd Jokes:
+				{jokes.map((item) => {
+					if (item.id === filteredJokes) { return ChuckJoke(item.joke) }
+				})}
 			</h2>
 
 
