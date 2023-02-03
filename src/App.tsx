@@ -41,12 +41,12 @@ function App() {
 			/>
 
 			<h2>Jokes:
-				{jokes.map((item) => ChuckJoke(item.joke))}
+				{jokes.map((item) => ChuckJoke(item.id,item.joke))}
 			</h2>
 
 			<h2>Filterd Jokes:
 				{jokes.map((item) => {
-					if (item.id === filteredJokes) { return ChuckJoke(item.joke) }
+					if (item.id === filteredJokes) { return ChuckJoke(item.id, item.joke) }
 				})}
 			</h2>
 
