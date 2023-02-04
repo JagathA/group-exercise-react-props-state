@@ -40,17 +40,17 @@ function App() {
 				roundHouseKicks={roundHouseKicks}
 			/>
 
-			<h2>Jokes:
-				{jokes.map((item) => ChuckJoke(item.id,item.joke))}
-			</h2>
-
-			<h2>Filterd Jokes:
-				{jokes.map((item) => {
-					if (item.id === filteredJokes) { return ChuckJoke(item.id, item.joke) }
-				})}
-			</h2>
+			<h2>Jokes:</h2>
+			{jokes.map((item, index) => <ChuckJoke key={`joke-${index}`} id={item.id} joke={item.joke} />)}
 
 
+			<h2>Filterd Jokes: </h2>
+			{jokes.map((item, index) => {
+				console.log(item.id);
+				if (item.id === filteredJokes) {
+					return <ChuckJoke key={`joke-${index}`} id={item.id} joke={item.joke} />
+				}
+			})}
 		</div>
 	);
 }
